@@ -12,7 +12,7 @@
                 const response = await fetch('stretches.json');
                 const stretches = await response.json();
                 const randomStretch = stretches[Math.floor(Math.random() * stretches.length)];
-                document.getElementById('randomName').innerHTML = `<a href="${randomStretch.url}">${randomStretch.stretch}</a>`;
+                document.getElementById('randomStretch').innerHTML = `<a href="${randomStretch.url}">${randomStretch.stretch}</a>`;
             } catch (error) {
                 console.error('Error fetching stretches:', error);
                 document.getElementById('randomStretch').innerText = 'Error fetching stretches';
