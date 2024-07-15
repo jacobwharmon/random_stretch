@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Stretch and URL</title>
+</head>
+<body>
+    <div id="randomStretch"></div>
+    <script>
+        async function fetchRandomStretch() {
+            try {
+                const response = await fetch('stretches.json');
+                const stretches = await response.json();
+                const randomStretch = stretches[Math.floor(Math.random() * stretches.length)];
+                document.getElementById('randomName').innerHTML = `<a href="${randomStretch.url}">${randomStretch.stretch}</a>`;
+            } catch (error) {
+                console.error('Error fetching stretches:', error);
+                document.getElementById('randomStretch').innerText = 'Error fetching stretches';
+            }
+        }
+
+        window.onload = fetchRandomStretch;
+    </script>
+</body>
+</html>
