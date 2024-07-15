@@ -17,19 +17,21 @@
         }
         .rainbow-title {
             font-size: 3em;
+            position: relative;
+            overflow: hidden;
             background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
             -webkit-background-clip: text;
             color: transparent;
-            animation: rainbow 3s infinite linear;
+            animation: marquee 10s linear infinite;
         }
         .subtitle {
             font-size: 1.2em;
             color: #555;
             margin-bottom: 20px;
         }
-        @keyframes rainbow {
+        @keyframes marquee {
             0% {
-                background-position: 0% 50%;
+                background-position: 0 50%;
             }
             100% {
                 background-position: 100% 50%;
@@ -52,7 +54,7 @@
 </head>
 <body>
     <div class="rainbow-title">RANDOM STRETCH/MOBILITY DRILL</div>
-    <div class="subtitle">refresh page for new random drill, click button for youtube example</div>
+    <div class="subtitle">refresh page for new random drill</div>
     <div id="randomStretch"></div>
     <script>
         async function fetchRandomStretch() {
