@@ -15,28 +15,25 @@
             background-color: #f0f0f0; /* Optional: to make the button stand out more */
             text-align: center;
         }
-        .sparkling-title {
+        .rainbow-title {
             font-size: 3em;
-            color: firebrick;
-            position: relative;
-        }
-        .sparkling-title::after {
-            content: '✨';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: sparkle 1s infinite;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: rainbow 3s infinite linear;
         }
         .subtitle {
             font-size: 1.2em;
             color: #555;
             margin-bottom: 20px;
         }
-        @keyframes sparkle {
-            0% { opacity: 0; transform: translateX(-50%) scale(0.5); }
-            50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
-            100% { opacity: 0; transform: translateX(-50%) scale(0.5); }
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
         }
         #randomStretch a {
             display: inline-block;
@@ -54,8 +51,8 @@
     </style>
 </head>
 <body>
-    <div class="sparkling-title">RANDOM STRETCH/MOBILITY DRILL</div>
-    <div class="subtitle">refresh page for new random drill</div>
+    <div class="rainbow-title">RANDOM STRETCH/MOBILITY DRILL</div>
+    <div class="subtitle">refresh page for new random drill, click button for youtube example</div>
     <div id="randomStretch"></div>
     <script>
         async function fetchRandomStretch() {
