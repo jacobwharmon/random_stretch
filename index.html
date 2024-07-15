@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Random Stretch and URL</title>
+    <link rel="stylesheet" href="styles.css?v=1.1"> <!-- Cache-busting for styles.css -->
     <style>
         body {
             display: flex;
@@ -62,7 +63,7 @@
                 const response = await fetch('stretches.json');
                 const stretches = await response.json();
                 const randomStretch = stretches[Math.floor(Math.random() * stretches.length)];
-                document.getElementById('randomStretch').innerHTML = `<a href="${randomStretch.url}">${randomStretch.stretch}</a>`;
+                document.getElementById('randomStretch').innerHTML = `<a href="${randomStretch.url}" target="_blank">${randomStretch.stretch}</a>`;
             } catch (error) {
                 console.error('Error fetching stretches:', error);
                 document.getElementById('randomStretch').innerText = 'Error fetching stretches';
